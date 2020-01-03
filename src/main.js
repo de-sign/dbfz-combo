@@ -17,7 +17,13 @@ ES.initialize( {
         }
     },
 
-    modules: {}
+    modules: {
+        store: {
+            combo: {
+                _index: ['sCharacter', 'sCategory']
+            }
+        }
+    }
 } )
 .then( () => {
     ES.windows.main.maximize();

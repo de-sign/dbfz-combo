@@ -2,10 +2,37 @@
 {% extends 'layouts/default.njk' %}
 
 {% block content %}
-    <main class="uk-section">
-        <div class="uk-container">
-            <h2 class="uk-heading-large"> Hello World !</h2>
-            <p>Welcome to Electron Starter</p>
-        </div>
-    </main>
+    <div class="uk-flex uk-height-1-1">
+        <nav class="uk-section uk-section-small uk-width-auto uk-background-muted">
+            <div class="uk-container">
+                <h2 class="uk-heading-small">Character</h2>
+                <ul class="uk-nav uk-nav-primary">
+                    <li
+                        v-for="(oCurrentCharacter, sCodeCharacter) in oCharacter"
+                        :key="sCodeCharacter"
+                        :class="{ 'uk-active': sSelectedCharacter == sCodeCharacter }"
+                    >
+                        <a @click="change(sCodeCharacter)" href="#" v-html="oCurrentCharacter.label"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="uk-width-expanduk-flex uk-flex-column">
+            <header class="uk-section uk-section-small">
+                <div class="uk-container uk-text-right">
+                    <button class="uk-button uk-button-default">
+                        Add
+                        <span class="uk-visible@s">combo</span>
+                    </button>
+                </div>
+            </header>
+            <main class="uk-container">
+                <combo
+                    v-for="oCurretnCombo in oCombo"
+                    :key="oCombo._id"
+                    :o-data="sSelectedCharacter"
+                ></combo>
+            </main>
+        </section>
+    </div>
 {% endblock %}

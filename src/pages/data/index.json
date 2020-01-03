@@ -3,8 +3,8 @@
         "path": "index.html"
     },
 	"meta": {
-		"title": "Electron Starter",
-		"description": "Hello World !"
+		"title": "DBFZ Combo",
+		"description": "DBFZ Combo"
     },
     "stylesheet": ["main","index"],
     "script": ["index"]

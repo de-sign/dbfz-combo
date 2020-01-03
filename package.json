@@ -1,8 +1,8 @@
 {
-  "name": "electron-starter",
-  "productName": "electron-starter",
-  "version": "0.2.0",
-  "description": "Electron application Starter pack",
+  "name": "dbfz-combo",
+  "productName": "dbfz-combo",
+  "version": "0.1.0",
+  "description": "DragonBall FighterZ - Combo list",
   "main": "main.js",
   "scripts": {
     "gulp-dev": "set NODE_ENV=development & gulp",
