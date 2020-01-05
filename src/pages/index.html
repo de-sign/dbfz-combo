@@ -17,22 +17,29 @@
                 </ul>
             </div>
         </nav>
-        <section class="uk-width-expanduk-flex uk-flex-column">
-            <header class="uk-section uk-section-small">
-                <div class="uk-container uk-text-right">
-                    <button class="uk-button uk-button-default">
+        <section class="uk-width-expand uk-flex uk-flex-column">
+            <main class="uk-section uk-section-small uk-width-expand uk-overflow-auto uk-padding-remove-bottom">
+                <div class="uk-container uk-container-expand">
+                    <combo
+                        v-for="oCurrentCombo in oCombo"
+                        :key="oCurrentCombo._id"
+                        :o-data="oCurrentCombo"
+                        @duplicate="duplicate(oCurrentCombo._id)"
+                        @remove="remove(oCurrentCombo._id)"
+                    ></combo>
+                </div>
+            </main>
+            <footer class="uk-section uk-section-small">
+                <div class="uk-container uk-container-expand uk-text-right">
+                    <button
+                        @click="add()"
+                        class="uk-button uk-button-default"
+                    >
                         Add
                         <span class="uk-visible@s">combo</span>
                     </button>
                 </div>
-            </header>
-            <main class="uk-container">
-                <combo
-                    v-for="oCurretnCombo in oCombo"
-                    :key="oCombo._id"
-                    :o-data="sSelectedCharacter"
-                ></combo>
-            </main>
+            </footer>
         </section>
     </div>
 {% endblock %}

@@ -1,0 +1,20 @@
+.v-combo {
+    a {
+        color: inherit !important;
+    }
+
+    .uk-dropdown {
+        margin: 0 !important;
+    }
+    
+    .v-add,
+    &:not(:hover) &-control {
+        display: none;
+    }
+
+    .v-add:hover,
+    &:hover .v-combo-add,
+    &-item:hover .v-add {
+        display: inline-block;
+    }
+}
