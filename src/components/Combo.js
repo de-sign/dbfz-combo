@@ -8,7 +8,14 @@ module.exports = {
         oData: Object
     },
     data() {
-        return this.oData;
+        const oData = Object.assign(
+            {
+                aHitInfo: []
+            },
+            this.oData
+        );
+        setTimeout( this.damage.bind(this), 1 );
+        return oData;
     },
     computed: {
         aLabelItem() {
@@ -17,12 +24,33 @@ module.exports = {
                         data.character[ this.sCharacter ][ oItem.sType ][ oItem.nIndex ].label :
                         data[ oItem.sCategory ][ oItem.sType ][ oItem.nIndex ].label;
             } );
+        }
+    },
+
+    watch: {
+        aItem() {
+            this.damage();
+        }
+    },
+    methods: {
+        set(sProp, uValue) {
+            this[sProp] = uValue;
+            const oData = Object.assign( {}, this.$data );
+            delete oData.aHitInfo;
+            ES.store.combo.update( oData._id, oData );
         },
-        nDamage() {
-            let nDamage = 0,
-                bFirstHit = false,
+        add(nIndex, oItem) {
+            this.aItem.splice(nIndex, 0, oItem);
+        },
+        remove(nIndex) {
+            this.aItem.splice(nIndex, 1);
+        },
+        damage() {
+            let bFirstHit = true,
                 nTableIndex = 0,
-                aTable = null;
+                aTable = null,
+                aHitInfo = [],
+                nTotal = 0;
             
             this.aItem
                 .map( oItem => {
@@ -32,9 +60,11 @@ module.exports = {
                 } )
                 .forEach(oItem => {
                     if( oItem.damage != null ){
-
-                        let aData = oItem.damage,
+                        let aPercent = [],
+                            aDamage = [],
+                            aData = oItem.damage,
                             aProration = oItem.proration;
+                            
                         if( !Array.isArray(oItem.damage) ){
                             aData = [aData];
                             aProration = [aProration];
@@ -42,40 +72,37 @@ module.exports = {
                         
                         aData.forEach( (nHitDamage, nHitIndex) => {
                             let nProration = aProration[nHitIndex];
-                            if( !bFirstHit ){
+                            if( bFirstHit ){
                                 aTable = data.table[ oItem.table ];
                                 nProration = oItem.initial;
                             }
-                            let nCoef = aTable[nTableIndex] / 100;
-                            nDamage += Math.max( oItem.minimum || 0, Math.floor(nHitDamage * nCoef) );
+
+                            let nDamage = Math.max( oItem.minimum || 0, Math.floor(nHitDamage * aTable[nTableIndex] / 100) );
+
+                            aPercent.push( aTable[nTableIndex] + '%' );
+                            aDamage.push( nDamage );
+                            nTotal += nDamage;
                             nTableIndex = Math.min(aTable.length - 1, nTableIndex + nProration);
-                            bFirstHit = true;
+                            bFirstHit = false;
                         } );
+
+                        aHitInfo.push( {
+                            sPercent: aPercent.join(', '),
+                            sDamage: aDamage.join(', ')
+                        } );
+                    } else {
+                        aHitInfo.push(null);
                     }
                 } );
 
-            return nDamage;
-        }
-    },
-
-    methods: {
-        set(sProp, uValue) {
-            this[sProp] = uValue;
-            ES.store.combo.update( this.$data._id, this.$data );
-        },
-        add(nIndex, oItem) {
-            this.aItem.splice(nIndex, 0, oItem);
-            ES.store.combo.update( this.$data._id, this.$data );
-        },
-        remove(nIndex,) {
-            this.aItem.splice(nIndex, 1);
-            ES.store.combo.update( this.$data._id, this.$data );
+            this.aHitInfo = aHitInfo;
+            this.set('nDamage', nTotal);
         }
     },
     
     template: `
         <article class="v-combo uk-margin-medium">
-            <header class="uk-grid-small" uk-grid>
+            <header class="uk-grid-small uk-margin-small-bottom" uk-grid>
                 <div class="uk-width-expand">
                     <input class="uk-h3 uk-form-blank uk-display-block uk-width-1-1 uk-margin-remove" :value="sName" @input="set('sName', $event.target.value)">
                     <span class="uk-text-meta">{{ sCategory }} - {{ nDamage }} damages</span>
@@ -109,10 +136,14 @@ module.exports = {
                         @click="remove(nIndex)"
                         href="#"
                         title="Remove"
-                        class="uk-margin-small-right"
+                        class="uk-margin-small-right uk-display-inline-block"
                     >
-                        {{ sItem }}
-                    </span>
+                        <div>{{ sItem }}</div>
+                        <div v-if="aHitInfo[nIndex]" class="v-combo-item-info uk-text-meta">
+                            <div v-html="aHitInfo[nIndex].sDamage"></div>
+                            <div v-html="aHitInfo[nIndex].sPercent"></div>
+                        </div>
+                    </a>
                 </span>
                 <add
                     :s-character="sCharacter"

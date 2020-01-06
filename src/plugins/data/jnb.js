@@ -100,6 +100,13 @@ module.exports = {
             table: 1
         },
         {
+            label: 'j.LLL Smash!',
+            damage: 1000,
+            proration: 1,
+            initial: 2,
+            table: 1
+        },
+        {
             label: 'j.M',
             damage: 700,
             proration: 1,
@@ -116,6 +123,13 @@ module.exports = {
         {
             label: 'j.H',
             damage: 850,
+            proration: 1,
+            initial: 2,
+            table: 1
+        },
+        {
+            label: 'j.H Smash!',
+            damage: 1000,
             proration: 1,
             initial: 2,
             table: 1
@@ -246,18 +260,24 @@ module.exports = {
             level: 1,
             damage: 2415,
             minimum: 815,
+            proration: 2,
+            initial: 3,
             dhc: true
         },
         {
             label: 'j.236LM',
             level: 1,
             damage: 2415,
+            proration: 2,
+            initial: 3,
             minimum: 815
         },
         {
             label: '236HS',
             level: 1,
             damage: 1995,
+            proration: 2,
+            initial: 3,
             minimum: 799
         },
         {
@@ -266,6 +286,12 @@ module.exports = {
             damage: 4108,
             minimum: 1672,
             dhc: true
+        },
+        {
+            label: 'j.214LM',
+            level: 3,
+            damage: 4108,
+            minimum: 1672
         }
     ],
     assist: {

@@ -6,6 +6,16 @@
     .uk-dropdown {
         margin: 0 !important;
     }
+
+    &-item {
+        > *{
+            vertical-align: top;
+        }
+
+        main:not(.--info) &-info {
+            display: none;
+        }
+    }
     
     .v-add,
     &:not(:hover) &-control {

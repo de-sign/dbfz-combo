@@ -93,6 +93,13 @@ module.exports = {
             table: 1
         },
         {
+            label: 'j.LLL Smash!',
+            damage: 1000,
+            proration: 1,
+            initial: 2,
+            table: 1
+        },
+        {
             label: 'j.M',
             damage: 700,
             proration: 1,
@@ -102,6 +109,13 @@ module.exports = {
         {
             label: 'j.H',
             damage: 850,
+            proration: 1,
+            initial: 2,
+            table: 1
+        },
+        {
+            label: 'j.H Smash!',
+            damage: 1000,
             proration: 1,
             initial: 2,
             table: 1
@@ -123,98 +137,98 @@ module.exports = {
     ],
     special: [
         {
-            label: '236L NT',
+            label: '236L (NT)',
             damage: 1200,
             proration: 2,
             initial: 3,
             table: 2
         },
         {
-            label: '236M NT',
+            label: '236M (NT)',
             damage: 1300,
             proration: 2,
             initial: 3,
             table: 2
         },
         {
-            label: '236H NT',
+            label: '236H (NT)',
             damage: 1400,
             proration: 2,
             initial: 3,
             table: 2
         },
         {
-            label: 'j.236L NT',
+            label: 'j.236L (NT)',
             damage: 1000,
             proration: 2,
             initial: 3,
             table: 1
         },
         {
-            label: 'j.236M NT',
+            label: 'j.236M (NT)',
             damage: 1200,
             proration: 2,
             initial: 3,
             table: 1
         },
         {
-            label: 'j.236H NT',
+            label: 'j.236H (NT)',
             damage: 1300,
             proration: 2,
             initial: 3,
             table: 1
         },
         {
-            label: '214L NT',
+            label: '214L (NT)',
             damage: [500, 500],
             proration: [1, 1],
             initial: 1,
             table: 0
         },
         {
-            label: '214M NT',
+            label: '214M (NT)',
             damage: [350, 350, 350, 350],
             proration: [1, 0, 0, 1],
             initial: 1,
             table: 0
         },
         {
-            label: '214H NT',
+            label: '214H (NT)',
             damage: [270, 270, 270, 270, 270, 270],
             proration: [1, 0, 0, 0, 0, 1],
             initial: 1,
             table: 0
         },
         {
-            label: 'j.214L NT',
+            label: 'j.214L (NT)',
             damage: [470, 470],
             proration: [1, 0],
             initial: 1,
             table: 0
         },
         {
-            label: 'j.214M NT',
+            label: 'j.214M (NT)',
             damage: [270, 270, 270, 270],
             proration: [1, 0, 0, 0],
             initial: 1,
             table: 0
         },
         {
-            label: 'j.214H NT',
+            label: 'j.214H (NT)',
             damage: [240, 240, 240, 240, 240, 240],
             proration: [1, 0, 0, 0, 0, 0],
             initial: 1,
             table: 0
         },
         {
-            label: '236S NT',
+            label: '236S (NT)',
             damage: [262, 262, 262, 262, 262],
             proration: [1, 0, 0, 0, 0, 0],
             initial: 2,
             table: 1
         },
         {
-            label: 'j.236S NT',
+            label: 'j.236S (NT)',
             damage: [262, 262, 262, 262, 262],
             proration: [1, 0, 0, 0, 0, 0],
             initial: 2,
@@ -227,6 +241,8 @@ module.exports = {
             level: 1,
             damage: 2050,
             minimum: 770,
+            proration: 2,
+            initial: 3,
             dhc: true
         },
         {
@@ -234,25 +250,33 @@ module.exports = {
             level: 1,
             damage: 2214,
             minimum: 810,
+            proration: 2,
+            initial: 3,
             dhc: true
         },
         {
             label: 'j.236LM',
             level: 1,
             damage: 2050,
-            minimum: 770
+            minimum: 770,
+            proration: 2,
+            initial: 3
         },
         {
             label: 'j.236LM [2]',
             level: 1,
             damage: 2050,
-            minimum: 750
+            minimum: 750,
+            proration: 2,
+            initial: 3
         },
         {
             label: '236HS',
             level: 1,
             damage: 2214,
-            minimum: 810
+            minimum: 810,
+            proration: 2,
+            initial: 3
         },
         {
             label: '214LM',

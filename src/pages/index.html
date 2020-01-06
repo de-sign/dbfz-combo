@@ -18,7 +18,25 @@
             </div>
         </nav>
         <section class="uk-width-expand uk-flex uk-flex-column">
-            <main class="uk-section uk-section-small uk-width-expand uk-overflow-auto uk-padding-remove-bottom">
+            <header class="uk-section uk-section-small">
+                <div class="uk-container uk-container-expand uk-text-right">
+                    <label class="uk-margin-right">
+                        <input v-model="bViewInfo" type="checkbox" class="uk-checkbox" />
+                        View details
+                    </label>
+                    <button
+                        @click="add()"
+                        class="uk-button uk-button-default"
+                    >
+                        Add
+                        <span class="uk-visible@s">combo</span>
+                    </button>
+                </div>
+            </header>
+            <main
+                :class="{ '--info': bViewInfo }"
+                class="uk-section uk-section-small uk-width-expand uk-overflow-auto uk-padding-remove-top"
+            >
                 <div class="uk-container uk-container-expand">
                     <combo
                         v-for="oCurrentCombo in oCombo"
@@ -29,17 +47,6 @@
                     ></combo>
                 </div>
             </main>
-            <footer class="uk-section uk-section-small">
-                <div class="uk-container uk-container-expand uk-text-right">
-                    <button
-                        @click="add()"
-                        class="uk-button uk-button-default"
-                    >
-                        Add
-                        <span class="uk-visible@s">combo</span>
-                    </button>
-                </div>
-            </footer>
         </section>
     </div>
 {% endblock %}

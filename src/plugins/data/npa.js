@@ -100,6 +100,13 @@ module.exports = {
             table: 1
         },
         {
+            label: 'j.LLL Smash!',
+            damage: 1000,
+            proration: 1,
+            initial: 2,
+            table: 1
+        },
+        {
             label: 'j.M',
             damage: 700,
             proration: 1,
@@ -114,6 +121,13 @@ module.exports = {
             table: 1
         },
         {
+            label: 'j.H Smash!',
+            damage: 1000,
+            proration: 1,
+            initial: 2,
+            table: 1
+        },
+        {
             label: 'j.2H',
             damage: [650, 650],
             proration: [1, 0],
@@ -121,7 +135,7 @@ module.exports = {
             table: 1
         },
         {
-            label: 'j.S NT',
+            label: 'j.S (NT)',
             damage: 800,
             proration: 2,
             initial: 3,
@@ -130,42 +144,42 @@ module.exports = {
     ],
     special: [
         {
-            label: '236L NT',
+            label: '236L (NT)',
             damage: 1200,
             proration: 2,
             initial: 3,
             table: 1
         },
         {
-            label: '236M NT',
+            label: '236M (NT)',
             damage: [700, 700],
             proration: [1, 1],
             initial: 3,
             table: 1
         },
         {
-            label: '236H NT',
+            label: '236H (NT)',
             damage: [800, 1000],
             proration: [1, 1],
             initial: 3,
             table: 1
         },
         {
-            label: '236[L] NT',
+            label: '236[L] (NT)',
             damage: 1300,
             proration: 2,
             initial: 3,
             table: 1
         },
         {
-            label: '236[M] NT',
+            label: '236[M] (NT)',
             damage: [700, 1200],
             proration: [1, 1],
             initial: 3,
             table: 1
         },
         {
-            label: '236[H] NT',
+            label: '236[H] (NT)',
             damage: [800, 1300],
             proration: [1, 1],
             initial: 3,
@@ -181,49 +195,49 @@ module.exports = {
             label: '214H'
         },
         {
-            label: 'SB Claw NT',
+            label: 'SB Claw (NT)',
             damage: 700,
             proration: 1,
             initial: 2,
             table: 1
         },
         {
-            label: 'SB Slide NT',
+            label: 'SB Slide (NT)',
             damage: 600,
             proration: 1,
             initial: 2,
             table: 1
         },
         {
-            label: 'SB Spit NT',
+            label: 'SB Spit (NT)',
             damage: 400,
             proration: 1,
             initial: 2,
             table: 1
         },
         {
-            label: 'SB Hug NT',
+            label: 'SB Hug (NT)',
             damage: [0, 1200],
             proration: [0, 1],
             initial: 2,
             table: 1
         },
         {
-            label: '236S NT',
+            label: '236S (NT)',
             damage: 1100,
             proration: 1,
             initial: 2,
             table: 1
         },
         {
-            label: 'j.236S NT',
+            label: 'j.236S (NT)',
             damage: 1100,
             proration: 1,
             initial: 2,
             table: 1
         },
         {
-            label: '214S NT',
+            label: '214S (NT)',
             damage: [500, 600],
             proration: [1, 1],
             initial: 3,
@@ -236,6 +250,8 @@ module.exports = {
             level: 1,
             damage: 2300,
             minimum: 805,
+            proration: 2,
+            initial: 3,
             dhc: true
         },
         {

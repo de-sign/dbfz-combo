@@ -22,7 +22,8 @@ ES.initialize( {
         data: {
             oCharacter: data.character,
             sSelectedCharacter: Object.keys(data.character).shift(),
-            nCompute: 0
+            nCompute: 0,
+            bViewInfo: false
         },
         computed: {
             oCombo() {
@@ -43,7 +44,8 @@ ES.initialize( {
                     sName: 'New Combo',
                     sCharacter: this.sSelectedCharacter,
                     sCategory: 'TODO',
-                    aItem: []
+                    aItem: [],
+                    nDamage: 0
                 };
                 ES.store.combo.insert(oCombo);
                 this.nCompute++;

@@ -97,8 +97,8 @@ const oData = {
                 table: 0
             },
             {
-                label: 'Snapback',
-                damage: 200
+                label: 'DR Snap',
+                damage: 1960
             },
             {
                 label: 'Sparking',
@@ -122,7 +122,9 @@ const oData = {
     }
 };
 
-for( let i in oData.character ){
+let i, j, oSuper, bSuperLevel1;
+for( i in oData.character ){
+    bSuperLevel1 = false;
     oData.teammate.assist.push( Object.assign( {
             label: i,
             sCharacter: i
@@ -130,16 +132,17 @@ for( let i in oData.character ){
         oData.character[i].assist
     ) );
 
-    for( let j in oData.character[i].super ){
-        if( oData.character[i].super[j].dhc ) {
+    for( j in oData.character[i].super ){
+        if( (oSuper = oData.character[i].super[j]).dhc ) {
             oData.teammate.dhc.push( Object.assign(
                 {},
-                oData.character[i].super,
+                oSuper,
                 {
-                    label: i + ' level ' + oData.character[i].super[j].level + ' (' + oData.character[i].super[j].label + ')',
+                    label: i + ' level ' + oSuper.level + ( oSuper.level == 1 && bSuperLevel1 ? ' - ' + oSuper.label : ''),
                     sCharacter: i
                 }
             ) );
+            bSuperLevel1 = oSuper.level == 1;
         }
     }
 }
