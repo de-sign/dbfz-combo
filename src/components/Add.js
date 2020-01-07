@@ -31,7 +31,7 @@ module.exports = {
 
     methods: {
         click(sType, nIndex) {
-            this.$emit('click', {
+            this.$emit('add', {
                 sCategory: oCategory[sType],
                 sType,
                 nIndex
@@ -40,9 +40,9 @@ module.exports = {
     },
     
     template: `
-        <div class="v-add">
-            <span uk-icon="plus-circle"></span>
-            <div class="uk-padding-remove" uk-dropdown>
+        <div href="#" class="v-add">
+            <slot></slot><!--
+            --><div class="uk-padding-remove" uk-dropdown>
                 <div class="uk-height-max-large uk-overflow-auto uk-padding-small">
                     <ul
                         v-for="(aCurrentMenu, sMenu) in oMenu"

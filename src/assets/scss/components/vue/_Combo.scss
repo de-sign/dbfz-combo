@@ -12,7 +12,9 @@
             vertical-align: top;
         }
 
-        main:not(.--info) &-info {
+        main:not(.--detail-damage) &-detail-damage,
+        main:not(.--detail-percent) &-detail-percent,
+        main:not(.--detail-ki) &-detail-ki {
             display: none;
         }
     }
@@ -22,8 +24,8 @@
         display: none;
     }
 
+    .v-combo-add,
     .v-add:hover,
-    &:hover .v-combo-add,
     &-item:hover .v-add {
         display: inline-block;
     }

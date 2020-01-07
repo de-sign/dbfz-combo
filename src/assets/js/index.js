@@ -23,12 +23,20 @@ ES.initialize( {
             oCharacter: data.character,
             sSelectedCharacter: Object.keys(data.character).shift(),
             nCompute: 0,
-            bViewInfo: false
+            aCategory: data.category,
+            oDetail: data.detail
         },
         computed: {
             oCombo() {
                 this.nCompute; // Force computed
                 return ES.store.combo.select( ES.store.combo.index('sCharacter', this.sSelectedCharacter) );
+            },
+            oClassDetail() {
+                const oClassDetail = {};
+                for( let i in this.oDetail ){
+                    oClassDetail[ '--detail-' + i.toLowerCase() ] = this.oDetail[i];
+                }
+                return oClassDetail;
             }
         },
         
@@ -43,7 +51,7 @@ ES.initialize( {
                 const oCombo = {
                     sName: 'New Combo',
                     sCharacter: this.sSelectedCharacter,
-                    sCategory: 'TODO',
+                    sCategory: this.aCategory[0],
                     aItem: [],
                     nDamage: 0
                 };
@@ -57,6 +65,19 @@ ES.initialize( {
             remove(nId) {
                 ES.store.combo.delete(nId);
                 this.nCompute++;
+            },
+            detail(sDetail) {
+                const oDetail = Object.assign( {}, this.oDetail );
+                if( sDetail ){
+                    oDetail[sDetail] = !oDetail[sDetail];
+                } else {
+                    let bDetail = null;
+                    for( sDetail in oDetail ){
+                        bDetail == null && (bDetail = !oDetail[sDetail]);
+                        oDetail[sDetail] = bDetail;
+                    }
+                }
+                this.oDetail = oDetail; 
             }
         }
     } );

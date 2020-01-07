@@ -1,4 +1,16 @@
 const oData = {
+    category: [
+        'Midscreen',
+        'Midscreen to Corner',
+        'Corner',
+    ],
+
+    detail: {
+        Damage: false, 
+        Percent: false,
+        Ki: false
+    },
+
     table: [
         [100, 90, 80, 70, 60, 50, 40, 30, 30, 30, 30, 25, 25, 25, 20, 20, 20, 15],
         [100, 90, 80, 70, 60, 50, 40, 30, 20, 20, 20, 20, 15, 15, 15, 10],
@@ -67,6 +79,7 @@ const oData = {
             },
             {
                 label: '6M',
+                ki: 12,
                 damage: 850,
                 proration: 1,
                 initial: 3,
@@ -74,6 +87,7 @@ const oData = {
             },
             {
                 label: 'SD',
+                ki: 8,
                 damage: 300,
                 proration: 1,
                 initial: 2,
@@ -81,7 +95,9 @@ const oData = {
             },
             {
                 label: 'Vanish',
+                ki: -100,
                 damage: 850,
+                minimum: 170,
                 proration: 5,
                 initial: 5,
                 table: 1
@@ -90,18 +106,27 @@ const oData = {
                 label: 'Empty Vanish'
             },
             {
-                label: 'DR',
-                damage: 1760,
-                proration: 6,
-                initial: 9,
+                label: 'DR SD',
+                ki: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 4, 62.75],
+                damage: [120, 120, 120, 120, 120, 120, 120, 120, 800, 300],
+                proration: [0, 0, 0, 0, 0, 0, 0, 0, 0, 9],
                 table: 0
             },
             {
+                label: 'DR Smash!',
+                ki: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 4],
+                damage: [120, 120, 120, 120, 120, 120, 120, 120, 800],
+                proration: [0, 0, 0, 0, 0, 0, 0, 0, 6]
+            },
+            {
                 label: 'DR Snap',
-                damage: 1960
+                ki: [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 4],
+                damage: [120, 120, 120, 120, 120, 120, 120, 120, 1000],
+                proration: [0, 0, 0, 0, 0, 0, 0, 0, 6]
             },
             {
                 label: 'Sparking',
+                ki: 0,
                 damage: 0,
                 proration: 1,
                 initial: 6,

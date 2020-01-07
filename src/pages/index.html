@@ -20,13 +20,30 @@
         <section class="uk-width-expand uk-flex uk-flex-column">
             <header class="uk-section uk-section-small">
                 <div class="uk-container uk-container-expand uk-text-right">
-                    <label class="uk-margin-right">
-                        <input v-model="bViewInfo" type="checkbox" class="uk-checkbox" />
+                    <button
+                        @click="detail()"
+                        class="uk-button uk-button-default"
+                    >
                         View details
-                    </label>
+                    </button>
+                    <div class="uk-padding-small" uk-dropdown>
+                        <ul class="uk-nav uk-dropdown-nav uk-text-left">
+                            <li
+                                v-for="(bDetail, sDetail) in oDetail"
+                            >
+                                <a 
+                                    @click="detail(sDetail)"
+                                    href="#"
+                                >
+                                    <input type="checkbox" class="uk-checkbox" :checked="bDetail" />
+                                    <span class="uk-margin-small-left" v-html="sDetail"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                     <button
                         @click="add()"
-                        class="uk-button uk-button-default"
+                        class="uk-button uk-button-default uk-text-primary"
                     >
                         Add
                         <span class="uk-visible@s">combo</span>
@@ -34,7 +51,7 @@
                 </div>
             </header>
             <main
-                :class="{ '--info': bViewInfo }"
+                :class="oClassDetail"
                 class="uk-section uk-section-small uk-width-expand uk-overflow-auto uk-padding-remove-top"
             >
                 <div class="uk-container uk-container-expand">
@@ -42,6 +59,7 @@
                         v-for="oCurrentCombo in oCombo"
                         :key="oCurrentCombo._id"
                         :o-data="oCurrentCombo"
+                        :a-category="aCategory"
                         @duplicate="duplicate(oCurrentCombo._id)"
                         @remove="remove(oCurrentCombo._id)"
                     ></combo>
