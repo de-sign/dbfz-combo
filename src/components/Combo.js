@@ -10,7 +10,8 @@ module.exports = {
     data() {
         const oData = Object.assign(
             {
-                aHitInfo: []
+                aHitInfo: [],
+                nDamage: 0
             },
             this.oData
         );
@@ -63,11 +64,13 @@ module.exports = {
                         let aPercent = [],
                             aDamage = [],
                             aData = oItem.damage,
-                            aProration = oItem.proration;
+                            aProration = oItem.proration,
+                            aMinimum = oItem.minimum;
                             
                         if( !Array.isArray(oItem.damage) ){
                             aData = [aData];
                             aProration = [aProration];
+                            aMinimum = [aMinimum];
                         }
                         
                         aData.forEach( (nHitDamage, nHitIndex) => {
@@ -77,7 +80,7 @@ module.exports = {
                                 nProration = oItem.initial;
                             }
 
-                            let nDamage = Math.max( oItem.minimum || 0, Math.floor(nHitDamage * aTable[nTableIndex] / 100) );
+                            let nDamage = Math.max( aMinimum[nHitIndex] || 0, Math.floor(nHitDamage * aTable[nTableIndex] / 100) );
 
                             aPercent.push( aTable[nTableIndex] + '%' );
                             aDamage.push( nDamage );

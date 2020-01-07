@@ -179,43 +179,43 @@ module.exports = {
             table: 1
         },
         {
-            label: '214L (NT)',
+            label: '214L',
             damage: [500, 500],
             proration: [1, 1],
             initial: 1,
             table: 0
         },
         {
-            label: '214M (NT)',
+            label: '214M',
             damage: [350, 350, 350, 350],
             proration: [1, 0, 0, 1],
             initial: 1,
             table: 0
         },
         {
-            label: '214H (NT)',
+            label: '214H',
             damage: [270, 270, 270, 270, 270, 270],
             proration: [1, 0, 0, 0, 0, 1],
             initial: 1,
             table: 0
         },
         {
-            label: 'j.214L (NT)',
-            damage: [470, 470],
+            label: 'j.214L',
+            damage: [500, 500],
             proration: [1, 0],
             initial: 1,
             table: 0
         },
         {
-            label: 'j.214M (NT)',
-            damage: [270, 270, 270, 270],
+            label: 'j.214M',
+            damage: [300, 300, 300, 300],
             proration: [1, 0, 0, 0],
             initial: 1,
             table: 0
         },
         {
-            label: 'j.214H (NT)',
-            damage: [240, 240, 240, 240, 240, 240],
+            label: 'j.214H',
+            damage: [270, 270, 270, 270, 270, 270],
             proration: [1, 0, 0, 0, 0, 0],
             initial: 1,
             table: 0
@@ -239,50 +239,67 @@ module.exports = {
         {
             label: '236LM',
             level: 1,
-            damage: 2050,
-            minimum: 770,
-            proration: 2,
-            initial: 3,
+            damage: [250, 250, 250, 250, 250, 250, 250, 250, 250, 250],
+            minimum: [77, 77, 77, 77, 77, 77, 77, 77, 77, 77],
+            proration: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            initial: 2,
+            table: 1,
             dhc: true
         },
         {
             label: '236LM [8]',
             level: 1,
-            damage: 2214,
-            minimum: 810,
-            proration: 2,
-            initial: 3,
+            damage: [270, 270, 270, 270, 270, 270, 270, 270, 270, 270],
+            minimum: [81, 81, 81, 81, 81, 81, 81, 81, 81, 81],
+            proration: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            initial: 2,
+            table: 1,
             dhc: true
         },
         {
             label: 'j.236LM',
             level: 1,
-            damage: 2050,
-            minimum: 770,
-            proration: 2,
-            initial: 3
+            damage: [250, 250, 250, 250, 250, 250, 250, 250, 250, 250],
+            minimum: [77, 77, 77, 77, 77, 77, 77, 77, 77, 77],
+            proration: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            initial: 2,
+            table: 1
         },
         {
             label: 'j.236LM [2]',
             level: 1,
-            damage: 2050,
-            minimum: 750,
-            proration: 2,
-            initial: 3
+            damage: [250, 250, 250, 250, 250, 250, 250, 250, 250, 250],
+            minimum: [75, 75, 75, 75, 75, 75, 75, 75, 75, 75],
+            proration: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            initial: 2,
+            table: 1
         },
         {
             label: '236HS',
             level: 1,
-            damage: 2214,
-            minimum: 810,
-            proration: 2,
-            initial: 3
+            damage: [270, 270, 270, 270, 270, 270, 270, 270, 270, 270],
+            minimum: [81, 81, 81, 81, 81, 81, 81, 81, 81, 81],
+            proration: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            initial: 2,
+            table: 1
+        },
+        {
+            label: 'j.236HS',
+            level: 1,
+            damage: [270, 270, 270, 270, 270, 270, 270, 270, 270, 270],
+            minimum: [81, 81, 81, 81, 81, 81, 81, 81, 81, 81],
+            proration: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            initial: 2,
+            table: 1
         },
         {
             label: '214LM',
             level: 3,
-            damage: 4259,
-            minimum: 1759,
+            damage: [500, 420, 637, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130, 130],
+            minimum: [100, 84, 159, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59, 59],
+            proration: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            initial: 1,
+            table: 1,
             dhc: true
         }
     ],
