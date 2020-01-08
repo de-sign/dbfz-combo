@@ -24,6 +24,7 @@ ES.initialize( {
             sSelectedCharacter: Object.keys(data.character).shift(),
             nCompute: 0,
             aCategory: data.category,
+            aStatus: data.status,
             oDetail: data.detail
         },
         computed: {
@@ -47,11 +48,13 @@ ES.initialize( {
             change(sCode) {
                 this.sSelectedCharacter = sCode;
             },
+
             add() {
                 const oCombo = {
                     sName: 'New Combo',
                     sCharacter: this.sSelectedCharacter,
                     sCategory: this.aCategory[0],
+                    nStatus: 0,
                     aItem: [],
                     nDamage: 0
                 };
@@ -66,6 +69,7 @@ ES.initialize( {
                 ES.store.combo.delete(nId);
                 this.nCompute++;
             },
+
             detail(sDetail) {
                 const oDetail = Object.assign( {}, this.oDetail );
                 if( sDetail ){

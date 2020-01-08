@@ -6,14 +6,16 @@ module.exports = {
 
     props: {
         oData: Object,
-        aCategory: Array
+        aCategory: Array,
+        aStatus: Array
     },
     data() {
         const oData = Object.assign(
             {
                 aHitDetail: [],
                 nDamage: 0,
-                nKi: 0
+                nKi: 0,
+                nStatus: 0
             },
             this.oData
         );
@@ -24,14 +26,26 @@ module.exports = {
         aLabelItem() {
             return this.aItem.map( oItem => {
                 return oItem.sCategory == 'character' ?
-                        data.character[ this.sCharacter ][ oItem.sType ][ oItem.nIndex ].label :
-                        data[ oItem.sCategory ][ oItem.sType ][ oItem.nIndex ].label;
+                    data.character[ this.sCharacter ][ oItem.sType ][ oItem.nIndex ].label :
+                    data[ oItem.sCategory ][ oItem.sType ][ oItem.nIndex ].label;
             } );
+        },
+        oStatus() {
+            const oStatus = {},
+                oStartStatus = this.aStatus[this.nStatus];
+            if( oStartStatus.check ){
+                const aCheck = Array.isArray(oStartStatus.check) ? oStartStatus.check : [oStartStatus.check];
+                aCheck.forEach( sStatus => oStatus[sStatus] = true );
+            }
+            return oStatus;
         }
     },
 
     watch: {
         aItem() {
+            this.damage();
+        },
+        nStatus() {
             this.damage();
         }
     },
@@ -49,13 +63,15 @@ module.exports = {
             this.aItem.splice(nIndex, 1);
         },
         damage() {
+            const aHitDetail = [],
+                oStatus = Object.assign( { ki_cooldown: false }, this.oStatus );
+
             let bFirstHit = true,
                 nTableIndex = 0,
                 aTable = null,
-                aHitDetail = [],
                 nTotalDamage = 0,
                 nTotalKi = 0,
-                nRatioKi = 100;
+                oRatio = this.ratio(oStatus);
             
             this.aItem
                 .map( oItem => {
@@ -87,19 +103,20 @@ module.exports = {
                                 oItem.initial && (nProration = oItem.initial);
                             }
 
-                            let nDamage = Math.max( aMinimum[nHitIndex] || 0, Math.floor(nHitDamage * aTable[nTableIndex] / 100) ),
-                                nKi = (aKi[nHitIndex] || 0) * nRatioKi / 100;
+                            let nDamage = Math.max( aMinimum[nHitIndex] || 0, Math.floor(nHitDamage * aTable[nTableIndex] / 100 * oRatio.damage / 100) ),
+                                nKi = (aKi[nHitIndex] || 0) * oRatio.ki / 100;
 
-                            aHitPercent.push( aTable[nTableIndex] + '%' );
+                            aHitPercent.push( ( aTable[nTableIndex] / 100 * oRatio.damage / 100 * 100 ) + '%' );
                             aHitDamage.push( nDamage );
                             nKi && aHitKi.push( nKi );
 
                             nTotalDamage += nDamage;
                             nTotalKi += nKi;
                             nTableIndex = Math.min(aTable.length - 1, nTableIndex + nProration);
-                            nKi < 0 && (nRatioKi = 10);
+                            nKi < 0 && (oRatio = this.ratio(oStatus, 'ki_cooldown'));
                             bFirstHit = false;
                         } );
+                        oItem.status && (oRatio = this.ratio(oStatus, oItem.status));
 
                         aHitDetail.push( {
                             sPercent: aHitPercent.join(', '),
@@ -114,6 +131,38 @@ module.exports = {
             this.aHitDetail = aHitDetail;
             this.nKi = nTotalKi;
             this.set('nDamage', nTotalDamage);
+        },
+        ratio(oStatus, sStatus) {
+            const aStatus = [...this.aStatus].reverse();
+            let i = 0,
+                oRatio = {
+                    damage: 0,
+                    ki: 0
+                };
+
+            sStatus && (oStatus[sStatus] = true);
+            for( ; i < aStatus.length; i++ ){
+                let bIs = true;
+                const oCheckedStatus = aStatus[i],
+                    aCheck = Array.isArray(oCheckedStatus.check) ? oCheckedStatus.check : [oCheckedStatus.check];
+
+                aCheck.forEach( sCheck => {
+                    if(sCheck && !oStatus[ sCheck ]){
+                        bIs = false;
+                    }
+                } );
+
+                if( bIs ){
+                    oRatio.damage = 100 + oCheckedStatus.ratio.damage;
+                    oRatio.ki = 100 + oCheckedStatus.ratio.ki;
+                    break;
+                }
+            }
+
+            if( oStatus.ki_cooldown ){
+                oRatio.ki *= 10 / 100;
+            }
+            return oRatio;
         }
     },
     
@@ -122,23 +171,45 @@ module.exports = {
             <header class="uk-grid-small uk-margin-small-bottom" uk-grid>
                 <div class="uk-width-expand">
                     <input class="uk-h3 uk-form-blank uk-display-block uk-width-1-1 uk-margin-remove" :value="sName" @input="set('sName', $event.target.value)">
-                    <span class="uk-text-meta">{{ sCategory }} - {{ nDamage }} damages - {{ nKi }} ki</span>
-                    <div class="uk-padding-small" uk-dropdown>
-                        <ul class="uk-nav uk-dropdown-nav">
-                            <li class="uk-nav-header">Category</li>
-                            <li class="uk-nav-divider"></li>
-                            <li
-                                v-for="sCurrentCategory in aCategory"
-                                v-show="sCurrentCategory != sCategory"
-                            >
-                                <a 
-                                    @click="set('sCategory', sCurrentCategory)"
-                                    href="#"
+                    <div class="uk-text-meta">
+                        <span>{{ sCategory }}</span>
+                        <div class="uk-padding-small" uk-dropdown>
+                            <ul class="uk-nav uk-dropdown-nav">
+                                <li class="uk-nav-header">Category</li>
+                                <li class="uk-nav-divider"></li>
+                                <li
+                                    v-for="sCurrentCategory in aCategory"
+                                    v-show="sCurrentCategory != sCategory"
                                 >
-                                    {{ sCurrentCategory }}
-                                </a>
-                            </li>
-                        </ul>
+                                    <a 
+                                        @click="set('sCategory', sCurrentCategory)"
+                                        href="#"
+                                    >
+                                        {{ sCurrentCategory }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        -
+                        <span>{{ aStatus[nStatus].label }}</span>
+                        <div class="uk-padding-small" uk-dropdown>
+                            <ul class="uk-nav uk-dropdown-nav">
+                                <li class="uk-nav-header">Status</li>
+                                <li class="uk-nav-divider"></li>
+                                <li
+                                    v-for="(oStatus, nCurrentStatus) in aStatus"
+                                    v-show="(oStatus.character == null || oStatus.character == sCharacter) && nCurrentStatus != nStatus"
+                                >
+                                    <a 
+                                        @click="set('nStatus', nCurrentStatus)"
+                                        href="#"
+                                    >
+                                        {{ oStatus.label }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        - {{ nDamage }} damages - {{ nKi }} ki
                     </div>
                 </div>
                 <div class="v-combo-control">
