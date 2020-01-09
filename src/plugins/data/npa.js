@@ -67,6 +67,7 @@ module.exports = {
         },
         {
             label: 'S',
+            ki: [12, 6],
             damage: [450, 800],
             proration: [1, 1],
             initial: 2,
@@ -74,6 +75,7 @@ module.exports = {
         },
         {
             label: 'S(1)',
+            ki: 12,
             damage: 450,
             proration: 1,
             initial: 2,
@@ -81,6 +83,7 @@ module.exports = {
         },
         {
             label: 'S(2)',
+            ki: 6,
             damage: 800,
             proration: 1,
             initial: 2,
@@ -144,6 +147,7 @@ module.exports = {
         },
         {
             label: 'j.2H',
+            ki: [12, 12],
             damage: [650, 650],
             proration: [1, 0],
             initial: 2,
@@ -151,6 +155,7 @@ module.exports = {
         },
         {
             label: 'j.S (NT)',
+            ki: 6,
             damage: 800,
             proration: 2,
             initial: 3,
@@ -167,6 +172,7 @@ module.exports = {
         },
         {
             label: '236M (NT)',
+            ki: [6, 6],
             damage: [700, 700],
             proration: [1, 1],
             initial: 3,
@@ -243,6 +249,7 @@ module.exports = {
         },
         {
             label: '236S (NT)',
+            ki: 12,
             damage: 1100,
             proration: 1,
             initial: 2,
@@ -250,6 +257,7 @@ module.exports = {
         },
         {
             label: 'j.236S (NT)',
+            ki: 12,
             damage: 1100,
             proration: 1,
             initial: 2,
@@ -257,6 +265,7 @@ module.exports = {
         },
         {
             label: '214S (NT)',
+            ki: [6, 6],
             damage: [500, 600],
             proration: [1, 1],
             initial: 3,

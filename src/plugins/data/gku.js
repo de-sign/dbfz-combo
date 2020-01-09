@@ -344,7 +344,7 @@ module.exports = {
         }
     ],
     assist: {
-        damage: [200, 140, 140, 140, 140],
+        damage: [200, 200, 200, 200, 200],
         proration: [2, 0, 0, 0, 0],
         initial: 3,
         table: 1
