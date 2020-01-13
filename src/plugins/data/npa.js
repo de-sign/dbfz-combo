@@ -149,7 +149,7 @@ module.exports = {
             label: 'j.2H',
             ki: [12, 12],
             damage: [650, 650],
-            proration: [1, 0],
+            proration: [1, 1],
             initial: 2,
             table: 1
         },
@@ -173,7 +173,7 @@ module.exports = {
         {
             label: '236M (NT)',
             ki: [6, 6],
-            damage: [700, 700],
+            damage: [700, 900],
             proration: [1, 1],
             initial: 3,
             table: 1
@@ -246,6 +246,11 @@ module.exports = {
             proration: [0, 1],
             initial: 2,
             table: 1
+        },
+        {
+            label: 'SB Hug Restand (NT)',
+            damage: [0, 1334],
+            proration: [0, 1]
         },
         {
             label: '236S (NT)',

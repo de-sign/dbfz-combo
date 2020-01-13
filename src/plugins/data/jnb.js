@@ -304,18 +304,18 @@ module.exports = {
             level: 1,
             ki: [-100],
             damage: 2415,
+            minimum: 815,
             proration: 2,
-            initial: 3,
-            minimum: 815
+            initial: 3
         },
         {
             label: '236HS',
             level: 1,
             ki: [-100],
             damage: 1995,
+            minimum: 799,
             proration: 2,
-            initial: 3,
-            minimum: 799
+            initial: 3
         },
         {
             label: '214LM',
