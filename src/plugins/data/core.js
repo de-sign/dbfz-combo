@@ -319,9 +319,10 @@ const oData = {
     },
 
     character: {
-        JNB: require('./jnb'),
         GKU: require('./gku'),
+        VGT: require('./vgt'),
         NPA: require('./npa'),
+        JNB: require('./jnb'),
     },
 
     teammate: {

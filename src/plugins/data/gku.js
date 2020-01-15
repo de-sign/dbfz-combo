@@ -1,3 +1,4 @@
+// Complete
 module.exports = {
     label: 'Goku SSJ',
     normal: [
@@ -156,52 +157,52 @@ module.exports = {
     ],
     special: [
         {
-            label: '236L (NT)',
+            label: '236L',
             ki: 12,
             damage: 1200,
-            proration: 2,
+            proration: 1,
             initial: 3,
             table: 2
         },
         {
-            label: '236M (NT)',
+            label: '236M',
             ki: 12,
             damage: 1300,
-            proration: 2,
+            proration: 1,
             initial: 3,
             table: 2
         },
         {
-            label: '236H (NT)',
+            label: '236H',
             ki: -100,
             damage: 1400,
-            proration: 2,
+            proration: 1,
             initial: 3,
             table: 2
         },
         {
-            label: 'j.236L (NT)',
+            label: 'j.236L',
             ki: 12,
             damage: 1000,
-            proration: 2,
+            proration: 1,
             initial: 3,
-            table: 1
+            table: 2
         },
         {
-            label: 'j.236M (NT)',
+            label: 'j.236M',
             ki: 12,
             damage: 1200,
-            proration: 2,
+            proration: 1,
             initial: 3,
-            table: 1
+            table: 2
         },
         {
-            label: 'j.236H (NT)',
+            label: 'j.236H',
             ki: -100,
             damage: 1300,
-            proration: 2,
+            proration: 1,
             initial: 3,
-            table: 1
+            table: 2
         },
         {
             label: '214L',

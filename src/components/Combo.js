@@ -240,6 +240,7 @@ module.exports = {
                     class="v-combo-item"
                 >
                     <add
+                        v-if="!nIndex"
                         :s-character="sCharacter"
                         @add="add(nIndex, $event)"
                         class="uk-margin-small-right"
@@ -258,9 +259,15 @@ module.exports = {
                             <div class="v-combo-item-detail-percent" v-html="aHitDetail[nIndex].sPercent"></div>
                             <div class="v-combo-item-detail-ki" v-html="aHitDetail[nIndex].sKi"></div>
                         </div>
-                    </a>
+                    </a><!--
+                    --><add
+                        :s-character="sCharacter"
+                        @add="add(nIndex + 1, $event)"
+                        class="uk-margin-small-right"
+                    >
+                        <span uk-icon="plus-circle"></span>
+                    </add>
                 </span>
-            </div>
             </div>
         </article>
     `

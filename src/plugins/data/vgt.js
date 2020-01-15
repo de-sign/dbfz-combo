@@ -1,6 +1,6 @@
 // Complete
 module.exports = {
-    label: 'Janemba',
+    label: 'Vegeta SSJ',
     normal: [
         {
             label: '5L',
@@ -20,11 +20,11 @@ module.exports = {
         },
         {
             label: '5LLL',
-            ki: [6, 6],
-            damage: [600, 600],
-            proration: [0, 1],
-            initial: 2,
-            table: 2
+            ki: 12,
+            damage: 1000,
+            proration: 1,
+            initial: 1,
+            table: 0
         },
         {
             label: '2L',
@@ -67,17 +67,9 @@ module.exports = {
             table: 0
         },
         {
-            label: '5S',
+            label: 'S',
             ki: 6,
-            damage: 300,
-            proration: 1,
-            initial: 2,
-            table: 1
-        },
-        {
-            label: '2S',
-            ki: 6,
-            damage: 300,
+            damage: 250,
             proration: 1,
             initial: 2,
             table: 1
@@ -115,20 +107,20 @@ module.exports = {
             table: 1
         },
         {
+            label: 'j.2L',
+            ki: 7,
+            damage: 900,
+            proration: 1,
+            initial: 2,
+            table: 1
+        },
+        {
             label: 'j.M',
             ki: 7,
             damage: 700,
             proration: 1,
             initial: 2,
             table: 1
-        },
-        {
-            label: 'j.2M',
-            ki: 12,
-            damage: 900,
-            proration: 1,
-            initial: 3,
-            table: 2
         },
         {
             label: 'j.H',
@@ -157,7 +149,7 @@ module.exports = {
         {
             label: 'j.S',
             ki: 6,
-            damage: 300,
+            damage: 250,
             proration: 1,
             initial: 2,
             table: 1
@@ -165,126 +157,116 @@ module.exports = {
     ],
     special: [
         {
-            label: '22S',
-            ki: 12,
-            damage: 600,
-            initial: 3,
-            table: 2
-        },
-        {
-            label: 'j.22S',
-            ki: 12,
-            damage: 600,
-            initial: 3,
-            table: 2
-        },
-        {
             label: '236L',
-            ki: 12,
-            damage: 1100,
-            proration: 2,
-            initial: 3,
-            table: 1
+            ki: 10,
+            damage: 900,
+            proration: 1,
+            initial: 1,
+            table: 0
         },
         {
             label: '236M',
-            ki: 12,
-            damage: 1200,
-            proration: 2,
-            initial: 3,
-            table: 1
+            ki: [8, 8, 8],
+            damage: [300, 300, 500],
+            proration: [1, 0, 0],
+            initial: 1,
+            table: 0
         },
         {
             label: '236H',
             ki: -100,
-            damage: 1300,
-            proration: 2,
-            initial: 3,
+            damage: 1000,
+            proration: 1,
+            initial: 2,
             table: 1
         },
         {
             label: 'j.236L',
-            ki: 12,
-            damage: 1100,
-            proration: 2,
-            initial: 3,
-            table: 1
+            ki: 10,
+            damage: 900,
+            proration: 1,
+            initial: 1,
+            table: 0
         },
         {
             label: 'j.236M',
-            ki: 12,
-            damage: 1200,
-            proration: 2,
-            initial: 3,
-            table: 1
+            ki: [8, 8, 8],
+            damage: [300, 300, 500],
+            proration: [1, 0, 0],
+            initial: 1,
+            table: 0
         },
         {
             label: 'j.236H',
             ki: -100,
-            damage: 1300,
-            proration: 2,
-            initial: 3,
+            damage: 1000,
+            proration: 1,
+            initial: 2,
             table: 1
         },
         {
             label: '214L',
-            ki: 15,
-            damage: 1200,
+            ki: 10,
+            damage: 900,
             proration: 1,
-            initial: 3,
-            table: 2
+            initial: 2,
+            table: 1
         },
         {
             label: '214M',
-            ki: 15,
-            damage: 1250,
-            proration: 1,
+            ki: [10, 10],
+            damage: [800, 300],
+            proration: [1, 0],
             initial: 3,
             table: 2
         },
         {
             label: '214H',
-            ki: -100,
-            damage: 1300,
-            proration: 1,
+            ki: [-100],
+            damage: [800, 100, 100, 100, 100, 100, 300],
+            proration: [1, 0, 0, 0, 0, 0, 0],
             initial: 3,
             table: 2
         },
         {
             label: 'j.214L',
-            ki: [4, 4, 4],
-            damage: [350, 350, 350],
-            proration: [2, 0, 0],
-            initial: 3,
+            ki: 10,
+            damage: 900,
+            proration: 1,
+            initial: 2,
             table: 1
         },
         {
             label: 'j.214M',
-            ki: [4, 4, 4],
-            damage: [350, 350, 350],
-            proration: [2, 0, 0],
+            ki: [10, 10],
+            damage: [800, 300],
+            proration: [1, 0],
             initial: 3,
-            table: 1
+            table: 2
         },
         {
             label: 'j.214H',
             ki: [-100],
-            damage: [350, 350, 350, 350, 350, 350],
-            proration: [2, 0, 0, 0, 0, 0],
+            damage: [800, 100, 100, 100, 100, 100, 300],
+            proration: [1, 0, 0, 0, 0, 0, 0],
             initial: 3,
+            table: 2
+        },
+        {
+            label: '236S',
+            ki: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            damage: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+            proration: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            initial: 2,
             table: 1
         },
         {
-            label: '236S'
-        },
-        {
-            label: 'j.236S'
-        },
-        {
-            label: '214S'
-        },
-        {
-            label: 'j.214S'
+            label: 'j.236S',
+            ki: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            damage: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+            proration: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            initial: 2,
+            table: 1
         }
     ],
     super: [
@@ -292,54 +274,28 @@ module.exports = {
             label: '236LM',
             level: 1,
             ki: [-100],
-            damage: [400, 350, 350, 350, 350, 1100, 19],
-            minimum: [80, 70, 70, 70, 70, 440, 15],
-            proration: [2, 0, 0, 0, 0, 0, 0],
+            damage: 2200,
+            minimum: 814,
+            proration: 2,
             initial: 2,
             table: 1,
             dhc: true
         },
         {
-            label: 'j.236LM',
-            level: 1,
-            ki: [-100],
-            damage: [400, 350, 350, 350, 350, 1100, 19],
-            minimum: [80, 70, 70, 70, 70, 440, 15],
-            proration: [2, 0, 0, 0, 0, 0, 0],
-            initial: 2,
-            table: 1
-        },
-        {
-            label: '236HS',
-            level: 1,
-            ki: [-100],
-            damage: [888, 1107],
-            minimum: [213, 589],
-            proration: [0, 2],
-            initial: 2,
-            table: 1
-        },
-        {
             label: '214LM',
             level: 3,
             ki: [-300],
-            damage: [220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 360],
-            minimum: [81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 133],
+            damage: [220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220],
+            minimum: [83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83],
             proration: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            initial: 1,
+            table: 1,
             dhc: true
-        },
-        {
-            label: 'j.214LM',
-            level: 3,
-            ki: [-300],
-            damage: [220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 220, 360],
-            minimum: [81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 133],
-            proration: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         }
     ],
     assist: {
-        damage: [450, 450],
-        proration: [2, 0],
+        damage: [130, 130, 130, 130, 130, 130, 130, 130],
+        proration: [2, 0, 0, 0, 0, 0, 0, 0],
         initial: 3,
         table: 1
     }
