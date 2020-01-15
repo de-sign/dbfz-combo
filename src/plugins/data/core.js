@@ -319,10 +319,11 @@ const oData = {
     },
 
     character: {
+        A16: require('./a16'),
         GKU: require('./gku'),
-        VGT: require('./vgt'),
-        NPA: require('./npa'),
         JNB: require('./jnb'),
+        NPA: require('./npa'),
+        VGT: require('./vgt'),
     },
 
     teammate: {
