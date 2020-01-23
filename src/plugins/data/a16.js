@@ -149,12 +149,24 @@ module.exports = {
             table: 2
         },
         {
+            label: '236M Weak (NT)',
+            ki: 15,
+            damage: 1500,
+            proration: 1
+        },
+        {
             label: '236H (NT)',
             ki: -100,
             damage: 1550,
             proration: 1,
             initial: 3,
             table: 2
+        },
+        {
+            label: '236H Weak (NT)',
+            ki: -100,
+            damage: 1500,
+            proration: 1
         },
         {
             label: 'j.236L (NT)',
@@ -173,12 +185,24 @@ module.exports = {
             table: 2
         },
         {
+            label: 'j.236M Weak (NT)',
+            ki: [1, 15],
+            damage: [700, 200],
+            proration: [1, 1]
+        },
+        {
             label: 'j.236H (NT)',
             ki: [-100],
             damage: [1400, 200],
             proration: [1, 1],
             initial: 3,
             table: 2
+        },
+        {
+            label: 'j.236H Weak (NT)',
+            ki: [-100],
+            damage: [700, 200],
+            proration: [1, 1]
         },
         {
             label: '214L (NT)',
@@ -189,12 +213,24 @@ module.exports = {
             table: 2
         },
         {
+            label: '214L Weak (NT)',
+            ki: 1,
+            damage: 700,
+            proration: 1
+        },
+        {
             label: '214M (NT)',
             ki: 15,
             damage: 1400,
             proration: 1,
             initial: 4,
             table: 2
+        },
+        {
+            label: '214M Weak (NT)',
+            ki: 1,
+            damage: 700,
+            proration: 1
         },
         {
             label: '214H (NT)',
@@ -205,12 +241,24 @@ module.exports = {
             table: 2
         },
         {
+            label: '214H Weak (NT)',
+            ki: [-100],
+            damage: [300, 900],
+            proration: [1, 1]
+        },
+        {
             label: 'j.214L (NT)',
             ki: 15,
             damage: 1400,
             proration: 1,
             initial: 4,
             table: 2
+        },
+        {
+            label: 'j.214L Weak (NT)',
+            ki: 1,
+            damage: 700,
+            proration: 1
         },
         {
             label: 'j.214M (NT)',
@@ -221,12 +269,24 @@ module.exports = {
             table: 2
         },
         {
+            label: 'j.214M Weak (NT)',
+            ki: 1,
+            damage: 700,
+            proration: 1
+        },
+        {
             label: 'j.214H (NT)',
             ki: -100,
             damage: 1800,
             proration: 1,
             initial: 3,
             table: 2
+        },
+        {
+            label: 'j.214H Weak (NT)',
+            ki: -100,
+            damage: 900,
+            proration: 1
         },
         {
             label: '236S (NT)',
@@ -273,6 +333,17 @@ module.exports = {
             ki: [-300],
             damage: [4816],
             minimum: [1716],
+            proration: [1],
+            initial: 1,
+            table: 1,
+            dhc: true
+        },
+        {
+            label: '214HS (NT)',
+            level: 3,
+            ki: [-300],
+            damage: [50000],
+            minimum: [50000],
             proration: [1],
             initial: 1,
             table: 1,
